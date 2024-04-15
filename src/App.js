@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { Suspense } from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+import { addAdvertisment, deleteAdvertisment } from './actions/advertismentActions';
 import './App.css';
 
-function App() {
+const LazyAdvertismentForm = React.lazy(() => import('./components/advertismentForm'));
+const LazyAdvertismentList = React.lazy(() => import('./components/advertismentList'));
+
+const App = () => {
+  const handleSubmitAdvertisment = (advertismentData) => {
+    store.dispatch(addAdvertisment(advertismentData));
+  };
+
+  const handleDeleteAdvertisment = (advertismentId) => {
+    store.dispatch(deleteAdvertisment(advertismentId));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div>
+        <h1>Advertisment Tracker</h1>
+        <Suspense fallback={<div>Loading form...</div>}>
+          <LazyAdvertismentForm onSubmit={handleSubmitAdvertisment} />
+        </Suspense>
+        <Suspense fallback={<div>Loading list...</div>}>
+          <LazyAdvertismentList onDeleteAdvertisment={handleDeleteAdvertisment} />
+        </Suspense>
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;

@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
+/* Общие стили */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Фоновый цвет страницы */
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1200px; /* Увеличим ширину контейнера */
+  margin: 0 auto;
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Стили для формы добавления объявлений */
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Добавим отступ снизу формы */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Стили для карточки объявления */
+.advertisement-card {
+  width: calc(25% - 20px); /* Ширина карточки (1/4 ширины контейнера) с учетом отступов между ними */
+  background-color: #ffffff;
+  border: 2px solid #000000; /* Черная рамка */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px; /* Отступ между карточками */
+  box-sizing: border-box; /* Учитываем рамку в общей ширине элемента */
+  text-align: center; /* Выравниваем текст по центру */
+}
+
+.advertisement-card h2 {
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.advertisement-card p {
+  color: #555555;
+  margin-bottom: 10px;
+}
+
+.advertisement-card form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.advertisement-card input,
+.advertisement-card textarea {
+  width: calc(100% - 40px); /* Учтем отступы */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000000; /* Черная рамка для полей ввода */
+  border-radius: 5px;
+  margin-left: 20px; /* Отступ слева */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.advertisement-card textarea {
+  resize: vertical;
+}
+
+.advertisement-card button {
+  width: calc(50% - 10px); /* Учтем отступы */
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-left: 20px; /* Отступ слева */
+}
+
+.add-button {
+  background-color: #007bff; /* Цвет кнопки добавления */
+  color: #ffffff;
+}
+
+.add-button:hover {
+  background-color: #0056b3; /* Цвет кнопки добавления при наведении */
+}
+
+.update-button {
+  background-color: #28a745; /* Цвет кнопки редактирования */
+  color: #ffffff;
+}
+
+.cancel-button {
+  background-color: #dc3545; /* Цвет кнопки отмены */
+  color: #ffffff;
+}
+
+.advertisement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.advertisement-item {
+  flex: 0 0 calc(25% - 20px);
+  margin: 10px;
 }
