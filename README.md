@@ -1,5 +1,5 @@
 ### Сыллка на хост 
-https://bulletin-board-six.vercel.app/
+[[https://bulletin-board-six.vercel.app/](https://bulletin-board-kappa.vercel.app/)](https://bulletin-board-kappa.vercel.app/)
 ## Описание проекта
 Проект "Bulletin Board" - это веб-приложение, предназначенное для отслеживания и управления объявлениями. Основная цель проекта - предоставить пользователям простой и удобный способ добавления, редактирования, сохранения и удаления объявлений.
 
