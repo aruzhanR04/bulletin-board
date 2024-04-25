@@ -1,5 +1,15 @@
+import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App'; // Assuming App is your main component
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './store';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-// Use createRoot to render your app
-createRoot(document.getElementById('root')).render(<App />);
+serviceWorkerRegistration.register();
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

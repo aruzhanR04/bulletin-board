@@ -23,8 +23,6 @@ describe('Integration Test: User Flow', () => {
 
 
 
-
-
     await waitFor(() => {
       expect(screen.getByText('New Title')).toBeInTheDocument();
     });
@@ -37,15 +35,11 @@ describe('Integration Test: User Flow', () => {
     fireEvent.click(screen.getByText('Update'));
 
 
-    // Проверяем, что изменения сохранены
     await waitFor(() => {
       expect(screen.getByText('Edited Description')).toBeInTheDocument();
     });
 
-    // Удаляем объявление
     fireEvent.click(screen.getByText('Delete'));
-
-    // Проверяем, что объявление успешно удалено
     await waitFor(() => {
       expect(screen.queryByText('Edited Description')).not.toBeInTheDocument();
     });
